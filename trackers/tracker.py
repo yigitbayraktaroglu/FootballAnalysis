@@ -150,7 +150,7 @@ class Tracker:
 
         return frame
 
-    def draw_traingle(self, frame, bbox, color):
+    def draw_triangle(self, frame, bbox, color):
         y = int(bbox[1])
         x, _ = get_center_of_bbox(bbox)
 
@@ -201,7 +201,7 @@ class Tracker:
                 frame = self.draw_ellipse(frame, player["bbox"], color, track_id)
 
                 if player.get("has_ball", False):
-                    frame = self.draw_traingle(frame,player["bbox"], (0,0,255))
+                    frame = self.draw_triangle(frame,player["bbox"], (0,0,255))
 
 
             # Draw Referee
@@ -209,7 +209,7 @@ class Tracker:
                 frame = self.draw_ellipse(frame, referee["bbox"], (0, 255, 255))
 
             for track_id, ball in ball_dict.items():
-                frame = self.draw_traingle(frame, ball["bbox"], (0, 255, 0))
+                frame = self.draw_triangle(frame, ball["bbox"], (0, 255, 0))
 
             frame = self.draw_team_ball_control(frame,frame_num,team_ball_control)
 
