@@ -10,17 +10,15 @@ from speed_and_distance_estimator import SpeedAndDistance_Estimator
 
 
 def main():
-    # Read Video
     video_frames = read_video('input_videos/08fd33_4.mp4')
-
+    #Nesne Tespiti
     tracker = Tracker("models/best.pt")
-
     tracks = tracker.get_object_tracks(video_frames,
                                        read_from_stub=True,
                                        stub_path="stubs/track_stubs.pkl")
-
     tracker.add_position_to_tracks(tracks)
 
+    #Kamera Hareketi
     camera_movement_estimator = CameraMovementEstimator(video_frames[0])
     camera_movement_per_frame = camera_movement_estimator.get_camera_movement(video_frames,
                                                                               read_from_stub=True,
@@ -28,14 +26,18 @@ def main():
 
     camera_movement_estimator.add_adjust_positions_to_tracks(tracks,camera_movement_per_frame)
 
+    #Perspektif Transformatörü
     view_transformer = ViewTransformer()
     view_transformer.add_transformed_position_to_tracks(tracks)
 
+    #Top Enterpolasyonu
     tracks["ball"] = tracker.interpolate_ball_positions(tracks["ball"])
 
+    #Hiz ve Mesafe Tahmincisi
     speed_and_distance_estimator = SpeedAndDistance_Estimator()
     speed_and_distance_estimator.add_speed_and_distance_to_tracks(tracks)
 
+    #Oyuncu Takim Atamasi
     team_assigner = TeamAssigner()
     team_assigner.assign_team_color(video_frames[0], tracks["players"][0])
 
@@ -47,12 +49,12 @@ def main():
             tracks["players"][frame_num][player_id]["team"] = team
             tracks["players"][frame_num][player_id]["team_color"] = team_assigner.team_colors[team]
 
+    #Takim Top Kontrol Hesaplanmasi
     player_assigner = PlayerBallAssigner()
     team_ball_control = []
     for frame_num, player_track in enumerate(tracks["players"]):
         ball_bbox = tracks["ball"][frame_num][1]["bbox"]
         assigned_player = player_assigner.assign_ball_to_player(player_track, ball_bbox)
-
         if assigned_player !=-1:
             tracks["players"][frame_num][assigned_player]["has_ball"] = True
             team_ball_control.append(tracks["players"][frame_num][assigned_player]["team"])
@@ -61,6 +63,7 @@ def main():
 
     team_ball_control = np.array(team_ball_control)
 
+    #Cikti Videonun Olusturulması
     output_video_frames = tracker.draw_annotations(video_frames, tracks,team_ball_control)
 
     output_video_frames = camera_movement_estimator.draw_camera_movement(output_video_frames,camera_movement_per_frame)

@@ -24,9 +24,6 @@ class Tracker:
                         position = get_foot_position(bbox)
                     tracks[object][frame_num][track_id]["position"] = position
 
-
-
-
     def interpolate_ball_positions(self,ball_positions):
         ball_positions = [x.get(1,{}).get("bbox",[]) for x in ball_positions]
         df_ball_positions = pd.DataFrame(ball_positions,columns=["x1","y1","x2","y2"])
