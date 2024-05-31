@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52233ca5-2b5e-4e8c-8d6b-f92c6562e050" name="Changes" comment="color assignement">
-      <change afterPath="$PROJECT_DIR$/camera_movement_estimator/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/camera_movement_estimator/camera_movement_estimator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/player_ball_assigner/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/player_ball_assigner/player_ball_assigner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/camera_movement_stub.pkl" afterDir="false" />
+    <list default="true" id="52233ca5-2b5e-4e8c-8d6b-f92c6562e050" name="Changes" comment="camera movement estimator">
+      <change afterPath="$PROJECT_DIR$/view_transformer/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view_transformer/view_transformer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trackers/tracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/trackers/tracker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/bbox_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/bbox_utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +103,7 @@
       <workItem from="1715871429492" duration="8621000" />
       <workItem from="1716995730791" duration="9229000" />
       <workItem from="1717008698014" duration="4324000" />
-      <workItem from="1717153602829" duration="2391000" />
+      <workItem from="1717153602829" duration="8574000" />
     </task>
     <task id="LOCAL-00001" summary="first chapter">
       <option name="closed" value="true" />
@@ -127,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717004874849</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="camera movement estimator">
+      <option name="closed" value="true" />
+      <created>1717156080146</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717156080146</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,9 +150,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first chapter" />
     <MESSAGE value="color assignement" />
-    <option name="LAST_COMMIT_MESSAGE" value="color assignement" />
+    <MESSAGE value="camera movement estimator" />
+    <option name="LAST_COMMIT_MESSAGE" value="camera movement estimator" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/FootballAnalysis$main.coverage" NAME="main Coverage Results" MODIFIED="1717155169602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FootballAnalysis$main.coverage" NAME="main Coverage Results" MODIFIED="1717156014357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
